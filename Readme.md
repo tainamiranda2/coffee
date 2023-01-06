@@ -5,7 +5,7 @@
 # versão 1 - 
 ## consumo de api externa
 ## visualizar informações
-<img src="./img/img1.png"/>
+<img src="/img/img1.png"/>
 
 # versão 2 - 
 ## consumo de 2 apis externa 
@@ -13,3 +13,4 @@
 ## visualizar detalhes
 ## filtro
 
+<img src="/img/img1.png"/>

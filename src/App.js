@@ -1,54 +1,64 @@
 import './App.css';
 import { useEffect, useState } from 'react';
+import {Card} from './components/card/Card';
+import { Search } from './components/search/Search';
+import { Filtro } from './components/filtro/filtro';
 
 function App() {
 const [dados, setDados]=useState([]);
+const [dadosGelados,setDadosGelados]=useState([])
+
+const getCoffeeHot=async()=>{
+  fetch('https://api.sampleapis.com/coffee/hot') 
+.then((Response)=>Response.json()
+.then((ResponseJson)=>{
+  setDados(ResponseJson)
+}))
+
+}
+const getCoffeeIce=async()=>{
+  fetch('https://api.sampleapis.com/coffee/iced') 
+.then((Response)=>Response.json()
+.then((ResponseJson)=>{
+  setDadosGelados(ResponseJson)
+}))
+
+}
 
 useEffect(()=>{
-  fetch('https://api.sampleapis.com/coffee/hot',{
-  method:'GET',
-  headers:{
-    'Content-Type':'application/json'
-  },
-})
-  .then((resp)=>resp.json())
-  .then((data)=>{
-    setDados(data)
-  })
-.catch((err)=> console.log(err))
-  
+  getCoffeeHot()
+  getCoffeeIce()
 },[])
 //console.log('oi',dados)
   return (
     <div>
-    <h1  className="text-3xl font-bold underline">Café</h1>
+    <h1  className="text-3xl text-aling:center mx-auto font-bold underline">Café</h1>
+<Search pesquisa={"Qual item voce procura"}/>
+<Filtro hot={"hot"} ice={"ice"}/>
 
-{dados.map((teste)=>(
+<div className=''>
+{dados.map((hot)=>(
 
-  <div class="mb-5 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-<div class="md:flex">
-    <div class="md:shrink-0">
-
-<img class="h-48 w-full object-cover md:h-full md:w-48" src={teste.image}/>
-</div>
-
-<div class="p-10">
-  <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
-  <h2 key={teste.id}>{teste.title}</h2>
-  </div>
-
-<p class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">{teste.ingredients}</p>
-<span class="mb-2 text-slate-500">{teste.description}</span>
-
-</div>
-
-</div>
-</div>
-
+<Card
+key={hot.id}
+title={hot.title}
+image={hot.image}
+ingredients={hot.ingredients}
+/>
 ))}
 
+{dadosGelados.map((ice)=>(
+  <Card
+  key={ice.id}
+  title={ice.title}
+  image={ice.image}
+  
+  />
+))}
+</div>
 
     </div>
+    
   );
 }
 
