@@ -1,4 +1,4 @@
-## Tecnologias usadas: tailwind e React
+## Tecnologias usadas: tailwind e React, react-routes, REact-routes
 ## para usar bastar fazer um clone, digitar npm i, digitar npm start
 
 
