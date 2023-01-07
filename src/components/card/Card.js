@@ -2,8 +2,10 @@ import react from 'react'
 
 export const Card =({title,image,ingredients})=>{
     return(
+      
         <div class=" mb-5 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
         <div class="md:flex">
+
             <div class="md:shrink-0">
         
         <img class="h-48 w-full object-cover md:h-full md:w-48" src={image}/>
@@ -21,7 +23,8 @@ export const Card =({title,image,ingredients})=>{
         </div>
         
         </div>
-        </div>
         
+        </div>
+    
     )
 }

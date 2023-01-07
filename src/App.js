@@ -32,13 +32,13 @@ useEffect(()=>{
 //console.log('oi',dados)
   return (
     <div>
-    <h1  className="text-3xl text-aling:center mx-auto font-bold underline">Café</h1>
+    <h1  className=" mx-auto px-4 py-8">Café</h1>
 <Search pesquisa={"Qual item voce procura"}/>
 <Filtro hot={"hot"} ice={"ice"}/>
 
-<div className=''>
+<div className=' md:grid grid-cols-2 gap-4 lg:grid grid-cols-3 gap-4'>
+{/*grid grid-cols-2 gap-4  */}
 {dados.map((hot)=>(
-
 <Card
 key={hot.id}
 title={hot.title}
