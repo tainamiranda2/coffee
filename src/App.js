@@ -30,6 +30,7 @@ useEffect(()=>{
   getCoffeeIce()
 },[])
 //console.log('oi',dados)
+
   return (
     <div>
     <h1  className=" mx-auto px-4 py-8">Café</h1>
@@ -37,7 +38,7 @@ useEffect(()=>{
 <Filtro hot={"hot"} ice={"ice"}/>
 
 <div className=' md:grid grid-cols-2 gap-4 lg:grid grid-cols-3 gap-4'>
-{/*grid grid-cols-2 gap-4  */}
+{/*grid grid-cols-2 gap-4 */}
 {dados.map((hot)=>(
 <Card
 key={hot.id}
