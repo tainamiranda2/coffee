@@ -13,10 +13,10 @@ export const Card =({title,image,ingredients})=>{
         
         <div class="p-10">
           <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
-          <h2 >{title}</h2>
+          <h2 >Titúlo - {title}</h2>
           </div>
         
-        <p class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">{ingredients}</p>
+        <p class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">iIngredientes - {ingredients}</p>
         {/* <span class="mb-2 text-slate-500">{teste.description}</span>*/}
         
         

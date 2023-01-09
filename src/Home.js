@@ -1,43 +1,21 @@
-import { useEffect, useState } from 'react';
 import {Card} from './components/card/Card';
 import { Search } from './components/search/Search';
-import { Filtro } from './components/filtro/filtro';
+import { Fetch } from './hooks/Fetch';
 export const Home=()=>{
-    const [dados, setDados]=useState([]);
-const [dadosGelados,setDadosGelados]=useState([])
 
-const getCoffeeHot=async()=>{
-  fetch('https://api.sampleapis.com/coffee/hot') 
-.then((Response)=>Response.json()
-.then((ResponseJson)=>{
-  setDados(ResponseJson)
-}))
 
-}
-const getCoffeeIce=async()=>{
-  fetch('https://api.sampleapis.com/coffee/iced') 
-.then((Response)=>Response.json()
-.then((ResponseJson)=>{
-  setDadosGelados(ResponseJson)
-}))
+const {data:itens}=Fetch('https://api.sampleapis.com/coffee/hot')
 
-}
-
-useEffect(()=>{
-  getCoffeeHot()
-  getCoffeeIce()
-},[])
-//console.log('oi',dados)
-
+const {data:itensIce}=Fetch('https://api.sampleapis.com/coffee/iced')
+console.log(itens)
     return (
         <div>
-        <h1  className=" mx-auto px-4 py-8">Café</h1>
         <Search pesquisa={"Qual item voce procura"}/>
-        <Filtro hot={"hot"} ice={"ice"}/>
+     {/*<Filtro hot={"hot"} ice={"ice"}/>*/}   
         
         <div className=' md:grid grid-cols-2 gap-4 lg:grid grid-cols-3 gap-4'>
         {/*grid grid-cols-2 gap-4 */}
-        {dados.map((hot)=>(
+        {itens && itens.map((hot)=>(
         <Card
         key={hot.id}
         title={hot.title}
@@ -46,7 +24,7 @@ useEffect(()=>{
         />
         ))}
         
-        {dadosGelados.map((ice)=>(
+        {itensIce && itensIce.map((ice)=>(
           <Card
           key={ice.id}
           title={ice.title}
