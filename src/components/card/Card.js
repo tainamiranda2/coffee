@@ -1,6 +1,12 @@
-import react from 'react' 
+import { Link } from 'react-router-dom'
 
-export const Card =({title,image,ingredients})=>{
+export const Card =({
+    title,
+    image,
+    ingredients,
+    item,
+    info,
+    description})=>{
     return(
       
         <div class=" mb-5 max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
@@ -16,10 +22,12 @@ export const Card =({title,image,ingredients})=>{
           <h2 >Titúlo - {title}</h2>
           </div>
         
-        <p class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">iIngredientes - {ingredients}</p>
-        {/* <span class="mb-2 text-slate-500">{teste.description}</span>*/}
+        <p class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">
+            Ingredientes - {ingredients}</p>
+        <span class="mb-2 text-slate-500">{description}</span>
         
-        
+        <Link to={item}>{info}</Link>
+
         </div>
         
         </div>

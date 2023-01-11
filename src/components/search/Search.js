@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import {useNavigate} from 'react-router-dom'
-
 export const Search=({pesquisa})=>{
+  const [query,setQuery]=useState("")
 
 const navigate =useNavigate();
-const [query,setQuery]=useState()
 
 const handleSubmit=(e)=>{
   e.preventDefault()
-  navigate("/search?q="+query)
-}
+  if(!query) return;
 
+  navigate(`/search?q=${query}`)
+  setQuery("")
+}
+//console.log('teste1',query)
     return(
 <form onSubmit={handleSubmit}>
         <div class="flex justify-center">

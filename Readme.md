@@ -1,4 +1,4 @@
-## Tecnologias usadas: tailwind e React, react-routes, REact-routes
+## Tecnologias usadas: tailwind e React, react-routes
 ## para usar bastar fazer um clone, digitar npm i, digitar npm start
 
 
@@ -14,4 +14,4 @@
 ## visualizar detalhes
 ## filtro
 
-<img src="./img1.png"/>
+<img src="./img2.png"/>
